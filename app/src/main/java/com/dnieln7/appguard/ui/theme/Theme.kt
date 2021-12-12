@@ -41,9 +41,15 @@ fun AppGuardTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
         LightColorPalette
     }
 
+    val typography = if (darkTheme) {
+        TypographyDark
+    } else {
+        TypographyLight
+    }
+
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = typography,
         shapes = Shapes,
         content = content
     )
