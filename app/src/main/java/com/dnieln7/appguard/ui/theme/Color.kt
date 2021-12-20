@@ -3,12 +3,12 @@ package com.dnieln7.appguard.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val primary = Color(0xFF019EBD)
-//val primaryDark = Color(0xFF424D79)
-//val primaryLight = Color(0xFF9FA8DA)
+val primaryDark = Color(0xFF006F8D)
+val primaryLight = Color(0xFF5BCFF0)
 
 val secondary = Color(0xFFFDDF0B)
-//val secondaryDark = Color(0xFFB9BB5F)
-//val secondaryLight = Color(0xFFFFFFBF)
+val secondaryDark = Color(0xFFC5B000)
+val secondaryLight = Color(0xFFFFFF57)
 
 val backgroundDark = Color(0xFF121212)
 val backgroundLight = Color(0xFFFFFFFF)

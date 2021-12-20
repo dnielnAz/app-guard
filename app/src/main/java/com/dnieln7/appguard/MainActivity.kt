@@ -3,6 +3,7 @@ package com.dnieln7.appguard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -12,6 +13,8 @@ import com.dnieln7.appguard.ui.theme.AppGuardTheme
 import com.dnieln7.appguard.utils.PermissionChecker
 
 class MainActivity : ComponentActivity() {
+
+    @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,6 +50,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @ExperimentalMaterialApi
     @Composable
     fun StartApp() {
         if (
@@ -55,7 +59,7 @@ class MainActivity : ComponentActivity() {
         ) {
             HomeScreen()
         }else {
-            PermissionsScreen()
+            HomeScreen()
         }
     }
 }
