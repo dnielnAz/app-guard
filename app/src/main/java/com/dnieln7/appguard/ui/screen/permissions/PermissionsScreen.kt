@@ -10,14 +10,18 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import com.dnieln7.appguard.R
 import com.dnieln7.appguard.ui.component.VerticalExpandableSeparator
 import com.dnieln7.appguard.ui.component.VerticalSeparator
@@ -27,6 +31,21 @@ import com.dnieln7.appguard.utils.PermissionChecker
 @Composable
 fun PermissionsScreen() {
     val context = LocalContext.current
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
+
+    DisposableEffect(key1 = lifecycle) {
+        val observer = LifecycleEventObserver { source, event ->
+            if(event == Lifecycle.Event.ON_START) {
+                println("started-------------------------------------")
+            }
+        }
+
+        lifecycle.addObserver(observer)
+
+        onDispose {
+            lifecycle.removeObserver(observer)
+        }
+    }
 
     Column(modifier = Modifier.padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Image(

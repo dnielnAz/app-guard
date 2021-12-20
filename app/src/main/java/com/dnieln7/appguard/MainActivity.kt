@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                         setContent {
                             AppGuardTheme {
                                 Surface {
-                                    PermissionsScreen()
+                                    StartApp()
                                 }
                             }
                         }
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
             setContent {
                 AppGuardTheme {
                     Surface {
-                        PermissionsScreen()
+                        StartApp()
                     }
                 }
             }
@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
         ) {
             HomeScreen()
         }else {
-
+            PermissionsScreen()
         }
     }
 }
