@@ -19,7 +19,7 @@
         <item name="postSplashScreenTheme">@style/Theme.AppGuard</item>
     </style>
 
-    <style name="Theme.AppGuard.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AppGuard.AppBarOverlay" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
 
-    <style name="Theme.AppGuard.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.AppGuard.PopupOverlay" parent="Theme.MaterialComponents.DayNight" />
 </resources>

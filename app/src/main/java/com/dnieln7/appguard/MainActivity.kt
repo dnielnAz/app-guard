@@ -3,6 +3,7 @@ package com.dnieln7.appguard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import com.dnieln7.appguard.utils.PermissionChecker
 class MainActivity : ComponentActivity() {
 
     @ExperimentalMaterialApi
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    @ExperimentalAnimationApi
     @ExperimentalMaterialApi
     @Composable
     fun StartApp() {
