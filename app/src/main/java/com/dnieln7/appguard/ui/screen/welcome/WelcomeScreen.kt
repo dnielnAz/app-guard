@@ -14,10 +14,6 @@ import androidx.compose.material.icons.sharp.Android
 import androidx.compose.material.icons.sharp.Security
 import androidx.compose.material.icons.sharp.Settings
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -40,9 +36,6 @@ fun WelcomeScreen(
     toSecurity: () -> Unit,
     toSettings: () -> Unit,
 ) {
-    var showSecurity by rememberSaveable { mutableStateOf(false) }
-    var showSettings by rememberSaveable { mutableStateOf(false) }
-
     Scaffold {
         Column(
             modifier = Modifier
@@ -78,48 +71,32 @@ fun WelcomeScreen(
 
             VerticalExpandableSeparator()
 
-            EnterWithOpacity(
-                content = {
-                    ForwardOptionCard(
-                        title = "Apps settings",
-                        subtitle = "Select protected apps",
-                        icon = Icons.Sharp.Android,
-                        onClick = { toApps() }
-                    )
-                },
-                after = { showSecurity = true }
-            )
-
-            VerticalSeparator(size = 20)
-
-            if (showSecurity) {
-                EnterWithOpacity(
-                    enterFromRight = false,
-                    content = {
-                        BackwardOptionCard(
-                            title = "Security",
-                            subtitle = "Password and backup options",
-                            icon = Icons.Sharp.Security,
-                            onClick = { toSecurity() }
-                        )
-                    },
-                    after = { showSettings = true }
+            EnterWithOpacity {
+                ForwardOptionCard(
+                    title = "Apps settings",
+                    subtitle = "Select protected apps",
+                    icon = Icons.Sharp.Android,
+                    onClick = { toApps() }
                 )
             }
-
             VerticalSeparator(size = 20)
-
-            if (showSettings) {
-                EnterWithOpacity(
-                    content = {
-                        ForwardOptionCard(
-                            title = "Settings",
-                            subtitle = "App customization and other settings",
-                            icon = Icons.Sharp.Settings,
-                            onClick = { toSettings() }
-                        )
-                    },
-                    after = {}
+            EnterWithOpacity(
+                enterFromRight = false,
+            ) {
+                BackwardOptionCard(
+                    title = "Security",
+                    subtitle = "Password and backup options",
+                    icon = Icons.Sharp.Security,
+                    onClick = { toSecurity() }
+                )
+            }
+            VerticalSeparator(size = 20)
+            EnterWithOpacity {
+                ForwardOptionCard(
+                    title = "Settings",
+                    subtitle = "App customization and other settings",
+                    icon = Icons.Sharp.Settings,
+                    onClick = { toSettings() }
                 )
             }
 
