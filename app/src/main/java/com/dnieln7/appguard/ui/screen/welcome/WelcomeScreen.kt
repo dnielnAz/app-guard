@@ -13,8 +13,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.sharp.Android
 import androidx.compose.material.icons.sharp.Security
 import androidx.compose.material.icons.sharp.Settings
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -22,8 +25,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.dnieln7.appguard.ui.animation.FallingWithOpacity
-import com.dnieln7.appguard.ui.component.OptionCard
+import com.dnieln7.appguard.ui.animation.EnterWithOpacity
+import com.dnieln7.appguard.ui.component.BackwardOptionCard
+import com.dnieln7.appguard.ui.component.ForwardOptionCard
 import com.dnieln7.appguard.ui.component.VerticalExpandableSeparator
 import com.dnieln7.appguard.ui.component.VerticalSeparator
 import com.dnieln7.appguard.ui.theme.AppGuardTheme
@@ -74,9 +78,9 @@ fun WelcomeScreen(
 
             VerticalExpandableSeparator()
 
-            FallingWithOpacity(
+            EnterWithOpacity(
                 content = {
-                    OptionCard(
+                    ForwardOptionCard(
                         title = "Apps settings",
                         subtitle = "Select protected apps",
                         icon = Icons.Sharp.Android,
@@ -89,9 +93,10 @@ fun WelcomeScreen(
             VerticalSeparator(size = 20)
 
             if (showSecurity) {
-                FallingWithOpacity(
+                EnterWithOpacity(
+                    enterFromRight = false,
                     content = {
-                        OptionCard(
+                        BackwardOptionCard(
                             title = "Security",
                             subtitle = "Password and backup options",
                             icon = Icons.Sharp.Security,
@@ -105,9 +110,9 @@ fun WelcomeScreen(
             VerticalSeparator(size = 20)
 
             if (showSettings) {
-                FallingWithOpacity(
+                EnterWithOpacity(
                     content = {
-                        OptionCard(
+                        ForwardOptionCard(
                             title = "Settings",
                             subtitle = "App customization and other settings",
                             icon = Icons.Sharp.Settings,

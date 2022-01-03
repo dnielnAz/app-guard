@@ -4,15 +4,15 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.rememberNavController
 import com.dnieln7.appguard.ui.navigation.home.HomeNavContent
 import com.dnieln7.appguard.ui.theme.AppGuardTheme
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
 @ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @Composable
 fun HomeScreen() {
-    val navController = rememberNavController()
+    val navController = rememberAnimatedNavController()
 
     HomeNavContent(controller = navController)
 }
