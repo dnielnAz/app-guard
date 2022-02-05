@@ -9,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.dnieln7.appguard.ui.screen.home.HomeScreen
-import com.dnieln7.appguard.ui.screen.permissions.PermissionsScreen
 import com.dnieln7.appguard.ui.theme.AppGuardTheme
 import com.dnieln7.appguard.utils.PermissionChecker
 
@@ -61,7 +60,7 @@ class MainActivity : ComponentActivity() {
             PermissionChecker.checkUsageAccessPermission(this)
         ) {
             HomeScreen()
-        }else {
+        } else {
             HomeScreen()
         }
     }

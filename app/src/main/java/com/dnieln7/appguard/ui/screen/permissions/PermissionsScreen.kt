@@ -35,7 +35,7 @@ fun PermissionsScreen() {
 
     DisposableEffect(key1 = lifecycle) {
         val observer = LifecycleEventObserver { source, event ->
-            if(event == Lifecycle.Event.ON_START) {
+            if (event == Lifecycle.Event.ON_START) {
                 println("started-------------------------------------")
             }
         }
